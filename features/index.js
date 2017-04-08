@@ -15,10 +15,12 @@ exports.detect = function(file){
 }
 
 exports.detectOne = function(file, featureName){
-    const feature = features.filter(f => f.title === featureName)[0];
+    const feature = features.filter(f => 
+        f.title.toLowerCase() === featureName.toLowerCase()
+    )[0];
 
     if(!feature){
-        return false;
+        return null;
     }
 
     return feature.detect(file);
