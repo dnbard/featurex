@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 
 const BaseFeature = require('../../features/base');
 
-describe('Base Feature', () => {
+describe('Features >> Base', () => {
     it('should be a function', () => {
         expect(BaseFeature).to.be.a('function');
     });

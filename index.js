@@ -11,9 +11,14 @@ module.exports = function(path, featureName){
 
             const file = data.toString();
 
-            resolve(featureName ?
+            const detectedFeatures = (featureName ?
                 features.detectOne(file, featureName) ? featureName : null :
                 features.detect(file));
+
+            return resolve({
+                features: detectedFeatures,
+                environments: features.getEnvironment(detectedFeatures)
+            });
         });
     });
 }
